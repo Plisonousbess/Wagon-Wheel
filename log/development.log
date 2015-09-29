@@ -3513,3 +3513,511 @@ Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-29 15:18:06 -0700
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
   [1m[35mEquipment Load (0.2ms)[0m  SELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mEquipment Load (0.2ms)[0m  SELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?  [["user_id", 1]]
+  [1m[36mEquipment Load (0.3ms)[0m  [1mSELECT "equipment".* FROM "equipment"[0m
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20150929183424)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" text, "email" text, "password" text, "location" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150929183424"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+Migrating to CreateEquipment (20150929203324)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "equipment" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "typ" varchar, "make" varchar, "info" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_equipment_on_user_id" ON "equipment" ("user_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150929203324"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_equipment_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_equipment_on_user_id' AND type='index'
+[0m
+
+
+Started GET "/users" for ::1 at 2015-09-29 15:21:41 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html within layouts/application (2.9ms)
+Completed 200 OK in 404ms (Views: 385.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-09-29 15:21:42 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-09-29 15:21:42 -0700
+
+
+Started GET "/assets/equipment.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:21:42 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-09-29 15:21:42 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:21:42 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:21:42 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-29 15:21:42 -0700
+
+
+Started GET "/assets/equipment.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:21:42 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:21:42 -0700
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:21:42 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-29 15:21:42 -0700
+
+
+Started GET "/users/new" for ::1 at 2015-09-29 15:21:44 -0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html (50.8ms)
+  Rendered users/new.html within layouts/application (54.0ms)
+Completed 200 OK in 105ms (Views: 97.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2015-09-29 15:22:02 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xnQmNWM9mI0Sv4RLQTmKytlpGLsBfn8fzYVDXzOgPOrwnkSmIx3rcvINRGKQrI3QcWXcVgSvyCCGxlGb/85YkA==", "user"=>{"name"=>"Pig", "email"=>"pig@pig.pig", "password"=>"[FILTERED]", "location"=>"San Francisco"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "email", "password", "location", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Pig"], ["email", "pig@pig.pig"], ["password", "password"], ["location", "San Francisco"], ["created_at", "2015-09-29 22:22:02.361894"], ["updated_at", "2015-09-29 22:22:02.361894"]]
+  [1m[36m (4.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 74ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/users/1" for ::1 at 2015-09-29 15:22:02 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered equipment/_form.html (28.1ms)
+  [1m[36mEquipment Load (0.3ms)[0m  [1mSELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered equipment/_equipment.html (3.0ms)
+  Rendered users/show.html within layouts/application (34.0ms)
+Completed 200 OK in 97ms (Views: 77.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/1/equipment" for ::1 at 2015-09-29 15:22:19 -0700
+Processing by EquipmentController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Cjp28KY0OnqsHIxax6otmxG1B890OxmpeYGLc5xhkg080BRj5hRJhUyuTHMWPyqBubnDInHqrpYywpm3UA/2dw==", "equipment"=>{"typ"=>"bass", "make"=>"Engelhardt", "info"=>"'56"}, "commit"=>"Create Equipment", "user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "equipment" ("typ", "make", "info", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["typ", "bass"], ["make", "Engelhardt"], ["info", "'56"], ["user_id", 1], ["created_at", "2015-09-29 22:22:19.884234"], ["updated_at", "2015-09-29 22:22:19.884234"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  Rendered equipment/create.html within layouts/application (0.4ms)
+Completed 200 OK in 114ms (Views: 106.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/1" for ::1 at 2015-09-29 15:23:00 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered equipment/_form.html (2.2ms)
+  [1m[36mEquipment Load (0.1ms)[0m  [1mSELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered equipment/_equipment.html (1.5ms)
+  Rendered users/show.html within layouts/application (5.7ms)
+Completed 200 OK in 51ms (Views: 48.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/1/equipment" for ::1 at 2015-09-29 15:24:14 -0700
+Processing by EquipmentController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MaPVNropDhXMUKkJQsart4DRwYzMgpa9BPBEQTjsjtsHSbel+gl96iziaSCTU6ytKN0FYclTIYJPs1aF9ILqoQ==", "equipment"=>{"typ"=>"head", "make"=>"orange", "info"=>"big"}, "commit"=>"Create Equipment", "user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "equipment" ("typ", "make", "info", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["typ", "head"], ["make", "orange"], ["info", "big"], ["user_id", 1], ["created_at", "2015-09-29 22:24:14.743102"], ["updated_at", "2015-09-29 22:24:14.743102"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  Rendered equipment/_equipment.html (37.1ms)
+  Rendered equipment/create.html within layouts/application (38.3ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 2.1ms)
+
+ActionView::Template::Error (undefined method `each' for #<Equipment:0x007f9dd986d660>):
+    1: <h3>Equipment</h3>
+    2: <% @equipment.each do |equipment| %>
+    3: <p>
+    4:   <%= equipment.typ %><br>
+    5:   <%= equipment.make %><br>
+  app/views/equipment/_equipment.html:2:in `_app_views_equipment__equipment_html___928274002428085122_70157937911920'
+  app/views/equipment/create.html:1:in `_app_views_equipment_create_html___998500644741825708_70157968080700'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (22.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (41.1ms)
+
+
+Started POST "/users/1/equipment" for ::1 at 2015-09-29 15:25:47 -0700
+Processing by EquipmentController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MaPVNropDhXMUKkJQsart4DRwYzMgpa9BPBEQTjsjtsHSbel+gl96iziaSCTU6ytKN0FYclTIYJPs1aF9ILqoQ==", "equipment"=>{"typ"=>"head", "make"=>"orange", "info"=>"big"}, "commit"=>"Create Equipment", "user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "equipment" ("typ", "make", "info", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["typ", "head"], ["make", "orange"], ["info", "big"], ["user_id", 1], ["created_at", "2015-09-29 22:25:47.909164"], ["updated_at", "2015-09-29 22:25:47.909164"]]
+  [1m[36m (6.3ms)[0m  [1mcommit transaction[0m
+  Rendered equipment/create.html within layouts/application (73.0ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 6.8ms)
+
+ActionView::Template::Error (undefined local variable or method `equipment' for #<#<Class:0x007f9dd99772b8>:0x007f9dd916c280>):
+    1: <p>
+    2:   <%= equipment.typ %><br>
+    3:   <%= equipment.make %><br>
+    4:   <%= equipment.info %><br>
+    5: </p>
+  app/views/equipment/create.html:2:in `_app_views_equipment_create_html___998500644741825708_70157964392380'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (20.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (43.8ms)
+
+
+Started POST "/users/1/equipment" for ::1 at 2015-09-29 15:26:06 -0700
+Processing by EquipmentController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MaPVNropDhXMUKkJQsart4DRwYzMgpa9BPBEQTjsjtsHSbel+gl96iziaSCTU6ytKN0FYclTIYJPs1aF9ILqoQ==", "equipment"=>{"typ"=>"head", "make"=>"orange", "info"=>"big"}, "commit"=>"Create Equipment", "user_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "equipment" ("typ", "make", "info", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["typ", "head"], ["make", "orange"], ["info", "big"], ["user_id", 1], ["created_at", "2015-09-29 22:26:06.253078"], ["updated_at", "2015-09-29 22:26:06.253078"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  Rendered equipment/create.html within layouts/application (0.5ms)
+Completed 200 OK in 52ms (Views: 44.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/equipment.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:26:06 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:26:06 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:26:06 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-09-29 15:26:06 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-09-29 15:26:06 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-09-29 15:26:06 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-29 15:26:06 -0700
+
+
+Started GET "/assets/equipment.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:26:06 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:26:06 -0700
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:26:06 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-29 15:26:06 -0700
+  [1m[36mEquipment Load (1.2ms)[0m  [1mSELECT "equipment".* FROM "equipment"[0m
+  [1m[35mEquipment Load (0.3ms)[0m  SELECT "equipment".* FROM "equipment"
+
+
+Started GET "/users/1" for ::1 at 2015-09-29 15:37:15 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered equipment/_form.html (9.3ms)
+  [1m[36mEquipment Load (0.2ms)[0m  [1mSELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered equipment/_equipment.html (2.2ms)
+  Rendered users/show.html within layouts/application (13.1ms)
+Completed 200 OK in 69ms (Views: 54.1ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/1/equipment/4" for ::1 at 2015-09-29 15:37:27 -0700
+Processing by EquipmentController#destroy as HTML
+  Parameters: {"authenticity_token"=>"K++pVqyLj6fv3V9VdEJJ7AmzNhC7O9B4tRK8xFcrw38dBcvF7Kv8WA9vn3yl1072ob/y/b7qZ0f+Ua4Am0WnBQ==", "user_id"=>"1", "id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEquipment Load (0.3ms)[0m  [1mSELECT  "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ? AND "equipment"."id" = ? LIMIT 1[0m  [["user_id", 1], ["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "equipment" WHERE "equipment"."id" = ?[0m  [["id", 4]]
+  [1m[35m (98.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 106ms (ActiveRecord: 99.8ms)
+
+
+Started GET "/users/1" for ::1 at 2015-09-29 15:37:28 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered equipment/_form.html (2.2ms)
+  [1m[35mEquipment Load (0.1ms)[0m  SELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?  [["user_id", 1]]
+  Rendered equipment/_equipment.html (1.5ms)
+  Rendered users/show.html within layouts/application (5.2ms)
+Completed 200 OK in 55ms (Views: 52.9ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/1/equipment/3" for ::1 at 2015-09-29 15:37:30 -0700
+Processing by EquipmentController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7nHNarGGLhRH9ae7zjwOM2mn7FQMK5255BCsQDEN1DTYm6/58aZd66dHZ5IfqQkpwasouQn6KoavU76E/WOwTg==", "user_id"=>"1", "id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mEquipment Load (0.1ms)[0m  SELECT  "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ? AND "equipment"."id" = ? LIMIT 1  [["user_id", 1], ["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "equipment" WHERE "equipment"."id" = ?  [["id", 3]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 7ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/1" for ::1 at 2015-09-29 15:37:30 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered equipment/_form.html (1.8ms)
+  [1m[36mEquipment Load (0.1ms)[0m  [1mSELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered equipment/_equipment.html (1.5ms)
+  Rendered users/show.html within layouts/application (4.8ms)
+Completed 200 OK in 49ms (Views: 47.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for ::1 at 2015-09-29 15:39:58 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered equipment/_form.html (2.5ms)
+  [1m[36mEquipment Load (0.1ms)[0m  [1mSELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered equipment/_equipment.html (1.1ms)
+  Rendered users/show.html within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms)
+
+SyntaxError (/Users/apprentice/Desktop/Wagon-Wheel/app/views/equipment/_equipment.html:12: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/equipment/_equipment.html:12: syntax error, unexpected keyword_ensure, expecting end-of-input
+  app/views/users/show.html:11:in `_app_views_users_show_html__1342246321384403906_70157967902620'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (21.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (42.3ms)
+
+
+Started GET "/users/1" for ::1 at 2015-09-29 15:40:19 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered equipment/_form.html (2.6ms)
+  [1m[36mEquipment Load (0.1ms)[0m  [1mSELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered equipment/_equipment.html (1.3ms)
+  Rendered users/show.html within layouts/application (6.4ms)
+Completed 200 OK in 51ms (Views: 48.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/equipment.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:40:19 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:40:19 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-29 15:40:19 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-09-29 15:40:19 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:40:19 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-09-29 15:40:20 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-09-29 15:40:20 -0700
+
+
+Started GET "/assets/equipment.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:40:20 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:40:20 -0700
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:40:20 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-29 15:40:20 -0700
+
+
+Started GET "/users" for ::1 at 2015-09-29 15:40:29 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html within layouts/application (1.2ms)
+Completed 200 OK in 46ms (Views: 44.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for ::1 at 2015-09-29 15:40:29 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html within layouts/application (1.2ms)
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for ::1 at 2015-09-29 15:40:35 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html within layouts/application (1.0ms)
+Completed 200 OK in 114ms (Views: 113.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-09-29 15:40:35 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:40:35 -0700
+
+
+Started GET "/assets/equipment.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:40:35 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-09-29 15:40:35 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:40:35 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-29 15:40:35 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-09-29 15:40:35 -0700
+
+
+Started GET "/assets/equipment.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:40:35 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:40:35 -0700
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:40:35 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-29 15:40:35 -0700
+
+
+Started GET "/users/1" for ::1 at 2015-09-29 15:40:36 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered equipment/_form.html (4.1ms)
+  [1m[35mEquipment Load (0.2ms)[0m  SELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?  [["user_id", 1]]
+  Rendered equipment/_equipment.html (1.4ms)
+  Rendered users/show.html within layouts/application (10.5ms)
+Completed 200 OK in 58ms (Views: 55.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for ::1 at 2015-09-29 15:41:38 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered equipment/_form.html (2.1ms)
+  [1m[35mEquipment Load (0.1ms)[0m  SELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?  [["user_id", 1]]
+  Rendered equipment/_equipment.html (14.9ms)
+  Rendered users/show.html within layouts/application (19.1ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined local variable or method `equipment' for #<#<Class:0x007f9dd5ff1750>:0x007f9dd32ab5e8>):
+    1: 
+    2: <p>
+    3:   <%= equipment.typ %><br>
+    4:   <%= equipment.make %><br>
+    5:   <%= equipment.info %><br>
+    6: </p>
+  app/views/equipment/_equipment.html:3:in `_app_views_equipment__equipment_html___928274002428085122_70157914751540'
+  app/views/users/show.html:11:in `_app_views_users_show_html__1342246321384403906_70157914689920'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (16.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (34.9ms)
+
+
+Started GET "/users/1" for ::1 at 2015-09-29 15:41:57 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered equipment/_form.html (3.0ms)
+  [1m[35mEquipment Load (0.2ms)[0m  SELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?  [["user_id", 1]]
+  Rendered equipment/_equipment.html (0.8ms)
+  Rendered users/show.html within layouts/application (7.6ms)
+Completed 200 OK in 53ms (Views: 50.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/equipment.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:41:57 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-09-29 15:41:57 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-09-29 15:41:57 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:41:57 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-09-29 15:41:57 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-29 15:41:57 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-29 15:41:57 -0700
+
+
+Started GET "/assets/equipment.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:41:57 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:41:57 -0700
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-29 15:41:57 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-29 15:41:57 -0700
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mEquipment Load (0.3ms)[0m  SELECT "equipment".* FROM "equipment" WHERE "equipment"."user_id" = ?  [["user_id", 1]]
