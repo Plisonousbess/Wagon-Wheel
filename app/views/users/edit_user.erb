@@ -1,0 +1,8 @@
+Edit Your Profile
+<form method="POST" action="/users/<%= @user.id %>/update">
+  <input type="text" name="name" value="<%= @user.name %>"><br>
+  <input type="email" name="email" value="<%= @user.email %>"><br>
+  <input type="password" name="password" value="<%= @user.password %>"><br>
+  <input type="text" name="location" value="<%= @user.location %>"><br>
+  <input type="submit" value="Update Info">
+</form>

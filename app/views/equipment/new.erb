@@ -1,0 +1,14 @@
+<form method="POST" action="/users/<%= @user.id %>/equipment">
+	<select name="typ">
+		<option value="bass">bass</option>
+		<option value="head">head</option>
+		<option value="cab">cab</option>
+		<option value="flip_flops">flip-flops</option>
+		<option value="other">other</option>
+	</select><br>
+	<input type="text" name="year" placeholder="year"><br>
+	<input type="text" name="make" placeholder="make"><br>
+	<input type="text" name="info" placeholder="info"><br>
+	<input type="hidden" name="user_id" value="<%= @user.id %>">
+	<input type="submit" value="Submit">
+</form>

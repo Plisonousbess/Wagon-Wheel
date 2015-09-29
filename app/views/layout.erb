@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
+  <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title>Wagon Wheel</title>
+</head>
+<body>
+  <header class="topbar"> <span class="main_title"> Wagon Wheel</span> <span class="navbar">
+    <a href="/">Home</a>
+    <% if is_auth? %>
+    <a href="/users/<%= current_user.id %>">Your Profile</a>
+    <% end %>
+    <form class="search_form" method="POST" action="/search"><input type="text" name="search_term"></form><input type="submit" value="search"></span></header>
+    <div class="main">
+      <%= yield %>
+    </div>
+  </body>
+  </html>
