@@ -1,0 +1,11 @@
+<h3>Equipment</h3>
+<% @equipment.each do |equipment| %>
+<p>
+  <%= equipment.typ %><br>
+  <%= equipment.make %><br>
+  <%= equipment.info %><br>
+</p>
+<%= link_to 'Delete equipment', [equipment.user, equipment], method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+
