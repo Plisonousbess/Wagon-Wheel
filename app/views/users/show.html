@@ -3,14 +3,15 @@
 <h2><%= @user.name %></h2>
 <h3><%= @user.location %></h3>
 
-<p>
-  <h3>Add Equipment</h3>
-  <%= render 'equipment/form' %>
-</p>
 
 <p>
   <h3>Equipment</h3>
-  <%= render @user.equipment %>
+  <%= render 'equipment/equipment' %>
+</p>
+
+<p>
+  <h3>Add Equipment</h3>
+  <%= render 'equipment/form' %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %>
