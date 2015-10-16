@@ -5,6 +5,6 @@
 <ul>
 	<% @equipment.each do |item| %>
 	<% owner = User.find(item.user_id) %>
-	<li><a href="/equipment/<%= item.id %>"><%= item.year %> <%= item.make %> <%= item.typ %> in <%= owner.location %></a></li>
+	<li><a href="/equipment/<%= item.id %>"> <%= item.make %> <%= item.typ %> in <%= owner.location %></a></li>
 	<% end %>
 </ul>

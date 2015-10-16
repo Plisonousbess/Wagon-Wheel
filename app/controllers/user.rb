@@ -1,6 +1,25 @@
 get '/' do
-	erb :index
+  @users = User.all
+  @locations = []
+  @users.each do |user|
+    @locations << user.location
+  end
+  @locations = @locations.uniq.sort
+  erb :index
 end
+
+get '/locations/:location_name' do
+  p '@' * 40
+
+  @users = User.where(location: params[:location_name])
+
+  if request.xhr?
+    erb :'users/_by_location', { layout: false}
+  else
+    erb :'users/_by_location'
+  end
+end
+
 
 get '/users/new' do
 	erb :'users/signup'
@@ -40,7 +59,7 @@ end
 
 get '/users/:id' do
 	@user = User.find_by_id(params[:id])
-  	erb :'users/profile'
+ erb :'users/profile'
 end
 
 get '/users/:id/edit' do

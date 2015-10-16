@@ -8,7 +8,6 @@ post '/users/:id/equipment' do
 	user = User.find_by_id(params[:id])
 	equipment = Equipment.new(
 		typ: params[:typ],
-		year: params[:year],
 		make: params[:make],
 		info: params[:info],
 		user_id: params[:user_id]
@@ -23,7 +22,11 @@ end
 get '/users/:id/equipment' do
 	@user = User.find(params[:id].to_i)
 	@equipment = @user.equipment
-	erb :'users/equipment'
+	if request.xhr?
+		erb :'users/_equipment', { layout: false, locals: { :user => @user, :equipment => @equipment} }
+	else
+		erb :'users/equipment'
+	end
 end
 
 get '/equipment' do
@@ -43,7 +46,6 @@ end
 
 post '/equipment/:id/update' do
 	equipment = Equipment.find_by_id(params[:id])
-	equipment.year = params[:year]
 	equipment.make = params[:make]
 	equipment.info = params[:info]
 	equipment.save

@@ -24,7 +24,8 @@
     <% if is_auth? %>
     <a href="/users/<%= current_user.id %>">Your Profile</a>
     <% end %>
-    <form class="search_form" method="POST" action="/search"><input type="text" name="search_term"></form><input type="submit" value="search"></span></header>
+
+    </span></header>
     <div class="main">
       <%= yield %>
     </div>

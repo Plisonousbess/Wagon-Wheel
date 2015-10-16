@@ -1,0 +1,17 @@
+<div class="equipment_list">
+	<h5>Your equipment:</h5>
+
+	<% @equipment.each do |tool|%>
+	<p>
+	<h4><%= tool.typ %><br></h4>
+	<%= tool.make %><br>
+	<%= tool.info %><br>
+	</p>
+	<% if @user.id == current_user.id %>
+	<a href="/equipment/<%= tool.id %>/edit"><button>Edit this item</button></a><br>
+	<form method="POST" action="/equipment/<%= tool.id %>">
+		<input type="submit" value="Delete Item">
+	</form>
+	<%end%>
+	<%end%>
+</div>

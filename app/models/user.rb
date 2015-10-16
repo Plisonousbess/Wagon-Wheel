@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  # Remember to create a migration!
-  has_many :equipment
 
-  # validates 
+	has_many :equipment
+
 end

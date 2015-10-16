@@ -1,15 +1,24 @@
-<h3>Stop Playing Wagon Wheel!!!!</h3>
+<div class="main_top">
+	<div class="stop_playing">
+		<h3>Stop Playing Wagon Wheel!!!!</h3></div>
 
-<!-- have stuff on cards with background images -->
+		<% if !is_auth? %>
+			<a href="/users/new">Sign Up!</a><br>
+			<a href="/login">Log in</a>
+		<% else %>
+			You're logged in as <%= current_user.name %>.<br><br>
+			<a href="/users/<%= current_user.id %>">Go to your profile</a><br>
+			<a href="/logout">Log out</a>
+		<% end %>
+	</div>
 
-<% if !is_auth? %>
-<a href="/users/new">Sign Up!</a><br>
-<a href="/login">Log in</a>
-<% else %>
-You're logged in as <%= current_user.name %>.<br><br>
-<a href="/users/<%= current_user.id %>">Go to your profile</a><br>
-<a href="/logout">Log out</a>
+	<div class="list_space"></div>
 
+	<div class="location">
+		<h3>Here are the locations where users have equipment available for loan:</h3>
 
-<% end %>
+		<% @locations.each do |location| %>
+		<a class="location_finder" href="/locations/<%=location%>"><h4><%=location%><h4></a>
+		<%end%>
+	</div>
 

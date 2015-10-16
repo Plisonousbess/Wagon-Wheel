@@ -1,7 +1,6 @@
 Edit your <%= @equipment.typ %>
 
 <form method="POST" action="/equipment/<%= @equipment.id %>/update">
-	<input type="text" name="year" value="<%= @equipment.year %>"><br>
 	<input type="text" name="make" value="<%= @equipment.make %>"><br>
 	<input type="text" name="info" value="<%= @equipment.info %>"><br>
 	<input type="submit" value="Submit">

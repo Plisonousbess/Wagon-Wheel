@@ -1,0 +1,13 @@
+
+<div class="equipment_list">
+<% @users.each do |user| %>
+<h3><%= user.name %></h3>
+	<% user.equipment.each do |tool|%>
+	<p>
+		<h4><%= tool.typ %><br></h4>
+		<%= tool.make %><br>
+		<%= tool.info %><br>
+	</p>
+	<% end %>
+<% end %>
+</div>
